@@ -1,5 +1,6 @@
 # Import SparkSession
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession,functions as f
+from logging import getLogger
 
 # Create SparkSession
 spark = SparkSession.builder \
@@ -9,7 +10,8 @@ spark = SparkSession.builder \
 
 
 df = spark.read.json(
-      "/Users/pratikjoshi/PycharmProjects/cloudgeeks_pyspark_examples/data/json_files/wikidata_type_dict.json")
+      "/Users/pratikjoshi/PycharmProjects/cloudgeeks_pyspark_examples/data/wikidata_type_dict.json")
 
 # df.show()
+print("get count: ")
 print(df.count())
