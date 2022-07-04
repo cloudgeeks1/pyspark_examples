@@ -21,4 +21,4 @@ print(df.select("petalLength").distinct().count())
 
 
 
-#hower to the sample method and go through the information.
+#hover to the sample method and go through the information.

@@ -13,18 +13,18 @@ df = spark.read.option("header","true").csv(
       "/Users/pratikjoshi/PycharmProjects/cloudgeeks_pyspark_examples/data/naukri_data_science_jobs_india.csv")
 
 
-df.filter(df.Job_Role.contains("Sr")).show()
+df.where(df.Job_Role.contains("Sr")).show()
 
-df.filter(col("Job_Role")== "Sr. Data Scientist").show(truncate=False)
+df.where(col("Job_Role")== "Sr. Data Scientist").show(truncate=False)
 
-df.filter((col("Job_Role")== "Sr. Data Scientist") & (col("Location")== "Bangalore/Bengaluru")).show(truncate=False)
+df.where((col("Job_Role")== "Sr. Data Scientist") & (col("Location")== "Bangalore/Bengaluru")).show(truncate=False)
 
-df.filter((col("Job_Role")!= "Sr. Data Scientist") & (col("Location")!= "Bangalore/Bengaluru")).show(truncate=False)
+df.where((col("Job_Role")!= "Sr. Data Scientist") & (col("Location")!= "Bangalore/Bengaluru")).show(truncate=False)
 
 
 #multiple value filter in one condition
 Location = ["Bangalore/Bengaluru","Pune","Mumbai"]
-df.filter((col("Location").isin(Location) & (col("Company") == "IBM"))).show(truncate=False)
+df.where((col("Location").isin(Location) & (col("Company") == "IBM"))).show(truncate=False)
 
 #like function
-df.filter(col("Location").like("%Ko%")).show(truncate=False)
+df.where(col("Location").like("%Ko%")).show(truncate=False)
