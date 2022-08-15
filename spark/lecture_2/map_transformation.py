@@ -13,6 +13,8 @@ df = spark.read.option("header","true").csv(
 
 df.printSchema()
 
+# df.show()
+
 df.rdd.map((lambda x:
     (x["Job_Role"]+","+x["Company"],x["Location"],x["Job Experience"])
     )).toDF(["Role","City","Exp"]).show(10,False)

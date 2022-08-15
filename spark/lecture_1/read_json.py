@@ -12,6 +12,6 @@ spark = SparkSession.builder \
 df = spark.read.json(
       "/Users/pratikjoshi/PycharmProjects/cloudgeeks_pyspark_examples/data/wikidata_type_dict.json")
 
-# df.show()
+df.show()
 print("get count: ")
 print(df.count())
